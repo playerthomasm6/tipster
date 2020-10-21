@@ -57,12 +57,30 @@ Crunchy Roll
         D) 
 
     2) API signup and Setup
-        A) Sign up for Netflix API
-        B) Sign up for Hulu API
+        A) Sign up for Netflix API (Griffin)
+        B) Sign up for Hulu API (Needs Payment)
         C) Sign up for Disney Plus API
-        D) Sign up for Crunchy Roll API
+        D) Sign up for Crunchy Roll API (John Rogers)
         E) Sign up for HBO Max API
-        F) Sign up for Prime Video API
-        G) Sign up for Movie Trailer API
+        F) Sign up for Prime Video API (Needs Payment) 
+        G) Sign up for Movie Trailer API (Mathew Harris)
 
+
+Title: Tipster
+Description: Pairing a weed strain with movie
+
+    User doesn't know what weed strain to smoke with certain movies
+
+    User can search by weed strain or movie title to get the pairing
+
+API 1: http://strains.evanbusse.com/
+API 2: https://rapidapi.com/gox-ai-gox-ai-default/api/ott-details
+
+FE: Tom Player
+    Griffin Surett
+    Hemanth Kanuri
+
+BE: John Rogers
+    Hisham Kader
+    Matthew Harris
 
