@@ -25,7 +25,44 @@ Crunchy Roll
 
 # Rough Breakdown of Tasks
 
-Hisham : does everything
+# Front-End
 
-everyone else: watches Hisham
+    1) HTML Framework  
+
+        A) Multi Page?
+            a) Results are added to seperate results page?
+            b) Results are added to ?Modar? window
+
+        B) Single Page App?
+            a) Results pop up below the search bar
+        
+
+    2) CSS
+        A) Main Layout
+        B) Color Scheme
+        C) Font Types
+        D) CSS animation
+
+# Back-End
+
+    1) Javascript
+        A) On click events
+            a) Search bar
+            b) Categories?
+            c) by actors?
+        B) Dynamic created HTML
+            a) present results
+            b) 
+        C) Dynamic CSS
+        D) 
+
+    2) API signup and Setup
+        A) Sign up for Netflix API
+        B) Sign up for Hulu API
+        C) Sign up for Disney Plus API
+        D) Sign up for Crunchy Roll API
+        E) Sign up for HBO Max API
+        F) Sign up for Prime Video API
+        G) Sign up for Movie Trailer API
+
 
