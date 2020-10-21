@@ -67,13 +67,13 @@ Crunchy Roll
 
 
 Title: Tipster
-Description: Pairing a weed strain with movie
+Description: Pairing a beer with movie
 
-    User doesn't know what weed strain to smoke with certain movies
+    User doesn't know what beer to smoke with certain movies
 
-    User can search by weed strain or movie title to get the pairing
+    User can search by beer or movie title to get the pairing
 
-API 1: http://strains.evanbusse.com/
+API 1: https://www.thecocktaildb.com/api.php
 API 2: https://rapidapi.com/gox-ai-gox-ai-default/api/ott-details
 
 FE: Tom Player
