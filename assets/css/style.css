@@ -1,6 +1,14 @@
 .col{
+    padding-top: 50px;
+    padding-bottom: 80px;
     background-color: rgb(223, 65, 65);
+    background-image: url("/assets/");
     width: 100%;
     color: white;
-
 }
+
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
