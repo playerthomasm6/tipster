@@ -1,0 +1,13 @@
+<<<<<<< Updated upstream
+=======
+.body {
+    background-image: linear-gradient(to left, #D2D3C9, #333 50%, #eee 100%);
+}
+
+.col{
+    background-color: rgb(223, 65, 65);
+    width: 100%;
+    color: white;
+
+}
+>>>>>>> Stashed changes
