@@ -8,7 +8,7 @@
 // var actors = response.Actors; // response
 
 
-
+var masterArray = [];
 
 // TITLE
 var title = "The Lion King";
@@ -22,8 +22,9 @@ function titleCode(n) {
     var o = title.indexOf('o')
     var u = title.indexOf('u')
 
-    var titleCode = (a + e + i + o + u);
-    console.log(titleCode);
+    var titleCodeInt = (a + e + i + o + u);
+    console.log(titleCodeInt);
+    masterArray.push(titleCodeInt);
 };
 
 // Calls Function
@@ -50,6 +51,7 @@ function releaseYearCode() {
 
 releaseYearCode(releaseYear);
 console.log(releaseYearCodeArray);
+masterArray.push(releaseYearCodeArray);
 
 
 var runTime = "136 min"
@@ -67,11 +69,14 @@ function runTimeCode(){
         var runTimeIntCode = 20;
     };
     console.log(runTimeIntCode);
+    masterArray.push(runTimeIntCode);
 
-}
+};
 
 runTimeCode();
 
+
+console.log(masterArray);
 
 // 
 
