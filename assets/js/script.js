@@ -1,21 +1,23 @@
-+$(document).ready(function(){
+$(document).ready(function () {
 
 
     function displayMovieInfo() {
-    
-        var movie = $(this).attr("data-name");
-        // var result = movie.replace(/ /g, "+")
-         
-        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=e80d9e49";
-    
+
+       
+        var apiKey = "e80d9e49";
+        var queryURL = "https://www.omdbapi.com/?api-key=" + apiKey;
+
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {
-            console.log(response)
-            
-    
-        });
+        })
+
+            .then(function (response) {
+                console.log(response)
+
+
+            });
     };
+    
     displayMovieInfo();
-    });
+});
