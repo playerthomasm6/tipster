@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Tipster.com</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="Assets/CSS/style.css">
 
 </head>
@@ -16,10 +16,10 @@
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row animate__heartBeat">
             <div class="col">
-                <div class="searchBar">
-                    <h1 id="searchText">Search for a movie</h1>
+                <h1 class="animate__heartBeat " id="searchText">Search for a movie</h1>
+                <div class="searchBar animate__shakeX">
                     <input type="text" id="searchBar"><span><button>Send It</button></span>
                 </div>
             </div>
@@ -48,7 +48,10 @@
 
     <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="Assets/JS/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Assets/js/script.js"></script>
+    <script src="Assets/js/brewery.js"></script>
+    <script src="Assets/js/moviematch.js"></script>
 </body>
 
 </html>
