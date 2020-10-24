@@ -2,6 +2,7 @@
     padding-top: 50px;
     padding-bottom: 80px;
     background-color: rgb(223, 65, 65);
+    background-image: url("/assets/");
     width: 100%;
     color: white;
 }
@@ -9,6 +10,9 @@
 .container {
     text-align: center;
     padding: 40px;
+<<<<<<< HEAD
     background: url('assets/images/dots.png');
+=======
+>>>>>>> 1b60a4eef27d14536a65aa8157e075ac08655da5
 }
 
