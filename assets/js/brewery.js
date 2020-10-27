@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     
     // var APIKey = "4952f70986ff85965585395731129d9a";
-    var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random/?year&hasLabels=Y&abv=+10&key=4952f70986ff85965585395731129d9a";
+    var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random/?year2000-2015&abv=+10&key=4952f70986ff85965585395731129d9a";
     $.ajax({
         url: "https://limitless-tor-79246.herokuapp.com/cors",
         method: "POST",
@@ -18,11 +18,7 @@ $(document).ready(function () {
         console.log(response.data.title);
     })
 
-    function year () {
-
         
-    }
-
 
     
 });
