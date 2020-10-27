@@ -4,19 +4,6 @@ $(document).ready(function () {
     // var APIKey = "4952f70986ff85965585395731129d9a";
 
 
-    var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random?key=4952f70986ff85965585395731129d9a";
-    $.ajax({
-        url: "https://limitless-tor-79246.herokuapp.com/cors",
-        method: "POST",
-        data: {
-            url: queryURL,
-            method: "GET",
-            key: "DB4868A0E1958DD298798EF1086835163AB3ED38D909D7A97BF3611FF87CD4DB"
-        }
-    }).then(function (response) {
-        console.log(response);
-        console.log(response.data.title);
-    })
 
 
 
@@ -35,6 +22,7 @@ $(document).ready(function () {
 
     function displayMovieInfo() {
         var movie = $("#searchBar").val();
+        // OMDB API Request
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=e80d9e49";
 
         $.ajax({
@@ -42,19 +30,39 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response)
+            movieMatch();
+
+
+            // Brewery API request
+            var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random?key=4952f70986ff85965585395731129d9a";
+            $.ajax({
+                url: "https://limitless-tor-79246.herokuapp.com/cors",
+                method: "POST",
+                data: {
+                    url: queryURL,
+                    method: "GET",
+                    key: "DB4868A0E1958DD298798EF1086835163AB3ED38D909D7A97BF3611FF87CD4DB"
+                }
+            }).then(function (response) {
+                console.log(response);
+                console.log(response.data.title);
+            })
+
+            
+
         });
 
-        movieMatch();
-    }
 
-    function movieMatch(){
+    };
+
+    function movieMatch() {
 
         var masterArray = [];
-        
+
         // TITLE
-        var title = "The Lion King";
+        var title = response.Title;
         titleArray = [];
-        
+
         // Function generates a code based off of the title
         function titleCode(n) {
             var a = title.indexOf('a')
@@ -62,40 +70,40 @@ $(document).ready(function () {
             var i = title.indexOf('i')
             var o = title.indexOf('o')
             var u = title.indexOf('u')
-        
+
             var titleCodeInt = (a + e + i + o + u);
             console.log(titleCodeInt);
             masterArray.push(titleCodeInt);
         };
-        
+
         // Calls Function
         titleCode(title);
-        
+
         // RELEASE YEAR
-        var releaseYear = "1992";
+        var releaseYear = response.Released;
         releaseYearCodeArray = [];
-        
+
         // Function generates an Array based off of the year of the release year
         function releaseYearCode() {
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < releaseYear.length; i++) {
                 var num = releaseYear[i];
                 //console.log(releaseYear[i]);
                 var numInt = parseInt(num);
                 releaseYearCodeArray.push(numInt);
-                
+
             }
         };
-        
+
         releaseYearCode(releaseYear);
         console.log(releaseYearCodeArray);
         masterArray.push(releaseYearCodeArray);
-        
-        
-        var runTime = "136 min"
+
+
+        var runTime = response.Runtime;
         var runTimeInt = parseInt(runTime);
         console.log(runTimeInt);
-        
-        function runTimeCode(){
+
+        function runTimeCode() {
             if (runTimeInt < 50) {
                 var runTimeIntCode = 5;
             } else if (runTimeInt > 50 && runTimeInt < 100) {
@@ -107,16 +115,16 @@ $(document).ready(function () {
             };
             console.log(runTimeIntCode);
             masterArray.push(runTimeIntCode);
-        
+
         };
-        
+
         runTimeCode();
-        
-        
+
+
         console.log(masterArray);
-        
+
         // 
-        
+
         // {"Title":"The Matrix",
         // "Year":"1999",
         // "Rated":"R",
@@ -140,8 +148,8 @@ $(document).ready(function () {
         // "Type":"movie","DVD":"N/A","BoxOffice":"N/A",
         // "Production":"Village Roadshow Prod., Silver Pictures","Website":"N/A",
         // "Response":"True"}
-        
-        };
+
+    };
 
     // END FUNCTIONS
 
@@ -149,7 +157,7 @@ $(document).ready(function () {
 
     $("#searchBarButton").on("click", displayMovieInfo)
 
-    
+
 
     // END CLICK FUNCTIONS
 
