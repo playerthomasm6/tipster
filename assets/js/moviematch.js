@@ -6,7 +6,7 @@
 
 //var runTime = parseInt(response.Runtime);  // response
 // var actors = response.Actors; // response
-
+function movieMatch(){
 
 var masterArray = [];
 
@@ -103,3 +103,5 @@ console.log(masterArray);
 // "Type":"movie","DVD":"N/A","BoxOffice":"N/A",
 // "Production":"Village Roadshow Prod., Silver Pictures","Website":"N/A",
 // "Response":"True"}
+
+};
