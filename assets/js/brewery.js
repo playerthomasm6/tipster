@@ -1,26 +1,47 @@
-// Mathew Harris Created
-// Ajax call to grab info from the brewery API
-$(document).ready(function () {
-    // var APIKey = "4952f70986ff85965585395731129d9a";
-
-
-
-
-
-});
-
 // Hisham Kader Created
 // Ajax call to grab info from the omdb API
 $(document).ready(function () {
     // START GLOBAL VARIABLES
+    var masterArray = [];
 
 
     // END GLOBAL VARIABLES
 
     // START FUNCTIONS
 
+    // Grabbing the Movie title and passing it through
+    function getMovieTitle(title) {
+        var a = title.indexOf('a') // 5
+        var e = title.indexOf('e') // 2
+        var i = title.indexOf('i') // 8
+        var o = title.indexOf('o')
+        var u = title.indexOf('u')
+
+        return (a + e + i + o + u);
+
+    };
+    // FUNCTION: turns titleCodeInt to abv value
+    function titleCodeToAbv(x, n) {
+        if (x < n) {
+            return "-10";
+        };
+        return "+10";
+    };
+
+    // Function turns runTime to ibu value
+    function runTimeToIBU(runTime, num) {
+        if (runTime < num) {
+            return "-50"
+        }
+
+        return "+50"
+    };
 
     function displayMovieInfo() {
+        
+        $("#movieResult").empty();
+        $("#beerResult").empty();
+
         var movie = $("#searchBar").val();
         // OMDB API Request
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=e80d9e49";
@@ -29,78 +50,36 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
+            console.log(response);
+
+            // ADDING MOVIE INFO TO HTML
+            var newMovieDiv = $("<div>").attr("id", "newMovieDiv");
+            var moviePoster = $("<img>").attr("src", response.Poster);
+            newMovieDiv.append(moviePoster);
+            $("#movieResult").append(newMovieDiv);
             
-            //console.log(title);
-            var masterArray = [];
 
-            // TITLE
             var title = response.Title;
-            titleArray = [];
 
-            // Function generates a code based off of the title
-            // THE MATRIX
-            //function titleCode(n) {
-            var a = title.indexOf('a') // 5
-            var e = title.indexOf('e') // 2
-            var i = title.indexOf('i') // 8
-            var o = title.indexOf('o')
-            var u = title.indexOf('u')
+            var titleCodeInt = getMovieTitle(title);
 
-            var titleCodeInt = (a + e + i + o + u);
-            //console.log(a);
-            //console.log(e);
-            //console.log(i);
-            //console.log(o);
-            //console.log(u);
             console.log(titleCodeInt);
-
             masterArray.push(titleCodeInt);
-            //};
-
-            // Calls Function
-            //titleCode(title);
+            console.log(masterArray);
 
             // RELEASE YEAR
             var releaseYear = response.Year[2];
-            //releaseYearCodeArray = [];
             console.log(response.Year);
             console.log(releaseYear);
             var releaseYearInt = parseInt(releaseYear);
             console.log(releaseYearInt);
-
-            // Function generates an Array based off of the year of the release year
-            // function releaseYearCode() {
-
-
-
-
-            //     // for (var i = 0; i < 4; i++) {
-
-
-            //     //     // var num = releaseYear[i];
-            //     //     // //console.log(releaseYear[i]);
-            //     //     // var numInt = parseInt(num);
-            //     //     // releaseYearCodeArray.push(numInt);
-
-            //     // }
-            // };
-
-            //releaseYearCode(releaseYear);
-            //console.log(releaseYearCodeArray);
-            //masterArray.push(releaseYearCodeArray);
 
 
             var runTime = response.Runtime;
             var runTimeInt = parseInt(runTime);
             //console.log(runTimeInt);
 
-
-            if (runTimeInt < 120) {
-                var ibu = "-50";
-            } else if (runTimeInt > 120) {
-                var ibu = "+50";
-            };
+            var ibu = runTimeToIBU(runTimeInt, 120)
 
             console.log(ibu);
 
@@ -109,33 +88,32 @@ $(document).ready(function () {
             // MOVIE TITLE TO BEER ABV LEVEL
             var titleCodeInt1 = titleCodeInt;
 
-            if (titleCodeInt1 < 20) {
-                var abv = "-10";
-            } else {
-                var abv = "+10";
-            }
+            var abv = titleCodeToAbv(titleCodeInt1, 20);
 
-            // MOVIE RELEASE YEAR TO BEER RELEASE SPAN
-            // 1990s
-            // if (releaseYearInt === 9) {
-            //     var beerYear = "1990-1999";
-            //     console.log("Beer from the 90s")
-            //     // 2000s
-            // } else if (releaseYearInt === 0) {
-            //     var beerYear = "2000-2009";
-            //     console.log("Beer from the 2000s")
-            //     // 2010s
-            // } else if (releaseYearInt === 1) {
-            //     var beerYear = "2010-2019";
-            //     console.log("Beer from the 2010s")
-            //     // 2020s
-            // } else if (releaseYearInt === 2) {
-            //     var beerYear = "2020-2029";
-            //     console.log("Beer from the 2020s")
-            // } else {
-            //     beerYear = "1960-1989";
-            //     console.log("Beer from the past")
-            // };
+            // FUNCTION that would have used the movie year but the API did not work
+            function movieYearToBeerYear() {
+                // MOVIE RELEASE YEAR TO BEER RELEASE SPAN
+                // 1990s
+                // if (releaseYearInt === 9) {
+                //     var beerYear = "1990-1999";
+                //     console.log("Beer from the 90s")
+                //     // 2000s
+                // } else if (releaseYearInt === 0) {
+                //     var beerYear = "2000-2009";
+                //     console.log("Beer from the 2000s")
+                //     // 2010s
+                // } else if (releaseYearInt === 1) {
+                //     var beerYear = "2010-2019";
+                //     console.log("Beer from the 2010s")
+                //     // 2020s
+                // } else if (releaseYearInt === 2) {
+                //     var beerYear = "2020-2029";
+                //     console.log("Beer from the 2020s")
+                // } else {
+                //     beerYear = "1960-1989";
+                //     console.log("Beer from the past")
+                //};
+            };
 
             // Brewery API request
             var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random/?abv=" + abv + "&ibu=" + ibu + "&key=4952f70986ff85965585395731129d9a";
@@ -149,112 +127,35 @@ $(document).ready(function () {
                     key: "DB4868A0E1958DD298798EF1086835163AB3ED38D909D7A97BF3611FF87CD4DB"
                 }
             }).then(function (response) {
+
+                if (!response.data) {
+                   var noBeerForYou = $("<h1>").text("You should watch this movie sober...");
+                   $("#beerResult").append(noBeerForYou);
+                };
+
+                console.log(response);
+                var beerName = response.data.nameDisplay;
+                var ABV = response.data.abv;
+                var beerDescrtiption = response.data.style.description;
+                console.log(beerName);
+                console.log(ABV);
+                console.log(beerDescrtiption);
+                var nameEl = $("<h5 class='card-title'>").text(beerName);
+                var AbvEl = $("<h5 class='card-title'>").text(ABV);
+                var descriptionEl = $("<p class='card-title'>").text(beerDescrtiption);
+                $("#beerResult").append("Beer Name:",nameEl);
+                $("#beerResult").append("ABV:",AbvEl);
+                $("#beerResult").append("Description:",descriptionEl);
                 console.log(response);
                 console.log(response.data.title);
-            })
+            });
 
-
+            
 
         });
 
 
     };
-
-    // function movieMatch() {
-
-    //     var masterArray = [];
-
-    //     // TITLE
-    //     //var title = response.Title;
-    //     titleArray = [];
-
-    //     // Function generates a code based off of the title
-    //     function titleCode(n) {
-    //         var a = title.indexOf('a')
-    //         var e = title.indexOf('e')
-    //         var i = title.indexOf('i')
-    //         var o = title.indexOf('o')
-    //         var u = title.indexOf('u')
-
-    //         var titleCodeInt = (a + e + i + o + u);
-    //         console.log(titleCodeInt);
-    //         masterArray.push(titleCodeInt);
-    //     };
-
-    //     // Calls Function
-    //     titleCode(title);
-
-    //     // RELEASE YEAR
-    //     var releaseYear = response.Released;
-    //     releaseYearCodeArray = [];
-
-    //     // Function generates an Array based off of the year of the release year
-    //     function releaseYearCode() {
-    //         for (var i = 0; i < releaseYear.length; i++) {
-    //             var num = releaseYear[i];
-    //             //console.log(releaseYear[i]);
-    //             var numInt = parseInt(num);
-    //             releaseYearCodeArray.push(numInt);
-
-    //         }
-    //     };
-
-    //     releaseYearCode(releaseYear);
-    //     console.log(releaseYearCodeArray);
-    //     masterArray.push(releaseYearCodeArray);
-
-
-    //     var runTime = response.Runtime;
-    //     var runTimeInt = parseInt(runTime);
-    //     console.log(runTimeInt);
-
-    //     function runTimeCode() {
-    //         if (runTimeInt < 50) {
-    //             var runTimeIntCode = 5;
-    //         } else if (runTimeInt > 50 && runTimeInt < 100) {
-    //             var runTimeIntCode = 10;
-    //         } else if (runTimeInt > 100 && runTimeInt < 200) {
-    //             var runTimeIntCode = 15;
-    //         } else if (runTimeInt > 200) {
-    //             var runTimeIntCode = 20;
-    //         };
-    //         console.log(runTimeIntCode);
-    //         masterArray.push(runTimeIntCode);
-
-    //     };
-
-    //     runTimeCode();
-
-
-    //     console.log(masterArray);
-
-    //     // 
-
-    //     // {"Title":"The Matrix",
-    //     // "Year":"1999",
-    //     // "Rated":"R",
-    //     // "Released":"31 Mar 1999",
-    //     // "Runtime":"136 min",
-    //     // "Genre":"Action, Sci-Fi",
-    //     // "Director":"Lana Wachowski, Lilly Wachowski",
-    //     // "Writer":"Lilly Wachowski, Lana Wachowski",
-    //     // "Actors":"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
-    //     // "Plot":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-    //     // "Language":"English",
-    //     // "Country":"USA",
-    //     // "Awards":"Won 4 Oscars. Another 37 wins & 51 nominations.",
-    //     // "Poster":"https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-    //     // "Ratings":[{"Source":"Internet Movie Database",
-    //     // "Value":"8.7/10"},{"Source":"Rotten Tomatoes",
-    //     // "Value":"88%"},
-    //     // {"Source":"Metacritic","Value":"73/100"}],
-    //     // "Metascore":"73","imdbRating":"8.7",
-    //     // "imdbVotes":"1,639,488","imdbID":"tt0133093",
-    //     // "Type":"movie","DVD":"N/A","BoxOffice":"N/A",
-    //     // "Production":"Village Roadshow Prod., Silver Pictures","Website":"N/A",
-    //     // "Response":"True"}
-
-    // };
 
     // END FUNCTIONS
 
