@@ -58,12 +58,16 @@
     box-shadow: 0 5px #999;
   }
 
-#submit:hover {
-    background-color: rgb(53, 208, 255)
-}
+#searchBarButton:hover {
+    background-color: rgb(255, 255, 255);
+    Box-shadow:0.5px 5px 10px rgb(255, 230, 9), 0.5px 6px 6px rgb(239, 255, 11);
 
-#submit:active {
-    background-color: blue;
-    box-shadow: 0 3px #666;
-    transform: translateY(4px);
   }
+
+  #beerResult{
+      background-image: url("assets/images/beer1.jpg");
+      background-color: #cccccc00;
+  }
+
+
+  
