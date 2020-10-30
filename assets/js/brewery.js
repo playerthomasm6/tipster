@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     // var APIKey = "4952f70986ff85965585395731129d9a";
     var queryURL = "https://sandbox-api.brewerydb.com/v2/beer/random?key=4952f70986ff85965585395731129d9a";
+    
 
     $.ajax({
              url: "https://limitless-tor-79246.herokuapp.com/cors",
@@ -14,12 +15,22 @@ $(document).ready(function(){
                 console.log(response);
                 var beerName = response.data.nameDisplay;
                 var ABV = response.data.abv;
+                var beerDescrtiption = response.data.style.description;
                 console.log(beerName);
                 console.log(ABV);
-                var BeerContainer = $("<div>").addClass("beerContainerEL");
-                $(BeerContainer).html("<p>" + beerName + "</p>");
-            
-                $(".container").append(BeerContainer);
+                console.log(beerDescrtiption);
+
+                var nameEl = $("<h5 class='card-title'>").text(beerName);
+                var AbvEl = $("<h5 class='card-title'>").text(ABV);
+                var descriptionEl = $("<h5 class='card-title'>").text(beerDescrtiption);
+
+                $("#beerResult").append("Beer Name:",nameEl);
+                $("#beerResult").append("ABV:",AbvEl);
+                $("#beerResult").append("Description:",descriptionEl);
+
+
+
+                
                 
                 
             })
