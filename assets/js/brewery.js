@@ -4,7 +4,16 @@ $(document).ready(function () {
     // START GLOBAL VARIABLES
     var masterArray = [];
 
-    
+    var welcomeDiv = $("<div>").attr("class", "col s12 column-style");
+        var h1Text = $("<h1>").text("Search your favorite show or movie to pair with the perfect beer!");
+
+        $(welcomeDiv).append(h1Text);
+        $(".empty").append(welcomeDiv);
+
+
+
+
+
 
 
     // END GLOBAL VARIABLES
@@ -40,7 +49,32 @@ $(document).ready(function () {
     };
 
     function displayMovieInfo() {
-        
+        $(".empty").empty();
+
+
+        var movieRowEl = $("<div>").attr("class", "row");
+
+        var newDiv1 = $("<div>").attr("class", "col s1");
+        movieRowEl.append(newDiv1);
+
+        var newDiv2 = $("<div>").attr("class", "col s4 column-style");
+        newDiv2.attr("id", "movieResult");
+        movieRowEl.append(newDiv2);
+
+        var newDiv3 = $("<div>").attr("class", "col s2");
+        movieRowEl.append(newDiv3);
+
+        var newDiv4 = $("<div>").attr("class", "col s4 column-style");
+        newDiv4.attr("id", "beerResult");
+        movieRowEl.append(newDiv4);
+
+        var newDiv5 = $("<div>").attr("class", "col s1");
+        movieRowEl.append(newDiv5);
+
+        $(".empty").append(movieRowEl);
+
+
+
         $("#movieResult").empty();
         $("#beerResult").empty();
 
@@ -61,7 +95,7 @@ $(document).ready(function () {
 
             newMovieDiv.append(moviePoster);
             $("#movieResult").append(newMovieDiv);
-            
+
 
             var title = response.Title;
 
@@ -133,8 +167,8 @@ $(document).ready(function () {
             }).then(function (response) {
 
                 if (!response.data) {
-                   var noBeerForYou = $("<h1>").text("You should watch this movie sober...");
-                   $("#beerResult").append(noBeerForYou);
+                    var noBeerForYou = $("<h1>").text("You should watch this movie sober...");
+                    $("#beerResult").append(noBeerForYou);
                 };
 
                 console.log(response);
@@ -147,14 +181,14 @@ $(document).ready(function () {
                 var nameEl = $("<h5 class='card-title'>").text(beerName);
                 var AbvEl = $("<h5 class='card-title'>").text(ABV);
                 var descriptionEl = $("<p class='card-title'>").text(beerDescrtiption);
-                $("#beerResult").append("Beer Name: ",nameEl);
-                $("#beerResult").append("ABV:",AbvEl);
-                $("#beerResult").append("Description:",descriptionEl);
+                $("#beerResult").append("Beer Name: ", nameEl);
+                $("#beerResult").append("ABV:", AbvEl);
+                $("#beerResult").append("Description:", descriptionEl);
                 console.log(response);
                 console.log(response.data.title);
             });
 
-            
+
 
         });
 
@@ -166,8 +200,8 @@ $(document).ready(function () {
     // START CLICK FUNCTIONS
 
     $("#searchBarButton").on("click", displayMovieInfo);
-    
-    $("#searchBar").keypress(function (event){
+
+    $("#searchBar").keypress(function (event) {
         if (event.keyCode === 13) {
             $("#searchBarButton").click();
         }

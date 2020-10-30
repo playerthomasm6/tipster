@@ -1,5 +1,9 @@
+* {
+    font-family: 'Rubik', sans-serif;
+}
+
 body {
-    background: url(../image/overlay.png);
+    background: url("../assets/images/overlay1.png");
     background-color: rgb(22, 22, 22);
 }
 
