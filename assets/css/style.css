@@ -100,11 +100,23 @@ body {
 }
 
 #imdbImg {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    margin:1%;
 }
 
 #beerImg {
-    width: 50%;
-    height: 50%;
+    width: 45%;
+    height: 45%;
+    margin:auto;
 }
+
+#beerDescription{
+    font-size: 10px;
+}
+
+#beerDescription:Hover{
+    font-size: 20px;
+}
+
+a { color: inherit; } 

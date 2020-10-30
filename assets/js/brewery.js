@@ -11,18 +11,18 @@ $(document).ready(function () {
 
 
     // Adds Left Column Div
-    var welcomeCol2 = $("<div>").attr("class", "col s2");
+    var welcomeCol2 = $("<div>").attr("class", "col s12 m4 l3");
     var imdbImg = $("<img>").attr("src", "assets/images/imdb4.png");
     imdbImg.attr("id", "imdbImg");
     $(welcomeCol2).append(imdbImg);
     
 
-    var welcomeCol3 = $("<div>").attr("class", "col s8");
-    var h4Text = $("<h4>").text("Search your favorite show or movie to pair with the perfect beer!");
+    var welcomeCol3 = $("<div>").attr("class", "col s12 m4 l6");
+    var h4Text = $("<h4>").text("Search your favorite show or movie and pair it with the perfect beer!");
     $(welcomeCol3).append(h4Text);
     
 
-    var welcomeCol4 = $("<div>").attr("class", "col s2");
+    var welcomeCol4 = $("<div>").attr("class", "col s12 m4 l3");
     var beerImg = $("<img>").attr("src", "assets/images/beerglassfour.png");
     beerImg.attr("id", "beerImg");
     $(welcomeCol4).append(beerImg);
@@ -75,24 +75,23 @@ $(document).ready(function () {
     function displayMovieInfo() {
         $(".empty").empty();
 
-
         var movieRowEl = $("<div>").attr("class", "row");
 
-        var newDiv1 = $("<div>").attr("class", "col s1");
+        var newDiv1 = $("<div>").attr("class", "col s0 m1 l1");
         movieRowEl.append(newDiv1);
 
-        var newDiv2 = $("<div>").attr("class", "col s4 column-style");
+        var newDiv2 = $("<div>").attr("class", "col s12 m4 l4 column-style");
         newDiv2.attr("id", "movieResult");
         movieRowEl.append(newDiv2);
 
-        var newDiv3 = $("<div>").attr("class", "col s2");
+        var newDiv3 = $("<div>").attr("class", "col s0 m2 l2");
         movieRowEl.append(newDiv3);
 
-        var newDiv4 = $("<div>").attr("class", "col s4 column-style");
+        var newDiv4 = $("<div>").attr("class", "col s12 m4 l4 column-style");
         newDiv4.attr("id", "beerResult");
         movieRowEl.append(newDiv4);
 
-        var newDiv5 = $("<div>").attr("class", "col s1");
+        var newDiv5 = $("<div>").attr("class", "col s0 m1 l1");
         movieRowEl.append(newDiv5);
 
         $(".empty").append(movieRowEl);
@@ -199,15 +198,27 @@ $(document).ready(function () {
                 var beerName = response.data.nameDisplay;
                 var ABV = response.data.abv;
                 var beerDescrtiption = response.data.style.description;
+                
+                var beerSrmMin = response.data.style.srmMin;
+                var beerSrmMax = response.data.style.srmMax;
+                
+                var srmLink = $("<a>").text(response.data.style.srmMin);
+                srmLink.attr("href", "https://en.wikipedia.org/wiki/Beer_measurement");
+                var beerSrmMinEl = $("<a href='https://en.wikipedia.org/wiki/Beer_measurement'>").text("SRM Min:   " + beerSrmMin + "      SRM Max    " + beerSrmMax);
+        
+
                 console.log(beerName);
                 console.log(ABV);
                 console.log(beerDescrtiption);
-                var nameEl = $("<h5 class='card-title'>").text(beerName);
-                var AbvEl = $("<h5 class='card-title'>").text(ABV);
-                var descriptionEl = $("<p class='card-title'>").text(beerDescrtiption);
+                var nameEl = $("<h6 class='card-title'>").text(beerName);
+                var AbvEl = $("<h6 class='card-title'>").text("ABV: " + ABV);
+                var descriptionEl = $("<p class='card-title' id='beerDescription'>").text("Description: " + beerDescrtiption);
                 $("#beerResult").append("Beer Name: ", nameEl);
-                $("#beerResult").append("ABV:", AbvEl);
-                $("#beerResult").append("Description:", descriptionEl);
+                $("#beerResult").append(AbvEl);
+                $("#beerResult").append(beerSrmMinEl);
+                //$("#beerResult").append(beerSrmMaxEl);
+
+                $("#beerResult").append(descriptionEl);
                 console.log(response);
                 console.log(response.data.title);
             });
