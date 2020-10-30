@@ -99,5 +99,12 @@ body {
     margin: 2%;
 }
 
+#imdbImg {
+    width: 100%;
+    height: 100%;
+}
 
-  
+#beerImg {
+    width: 50%;
+    height: 50%;
+}

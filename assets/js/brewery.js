@@ -4,11 +4,35 @@ $(document).ready(function () {
     // START GLOBAL VARIABLES
     var masterArray = [];
 
-    var welcomeDiv = $("<div>").attr("class", "col s12 column-style");
-        var h1Text = $("<h1>").text("Search your favorite show or movie to pair with the perfect beer!");
+    // Adds Parent Column
+    var welcomeCol1 = $("<div>").attr("class", "col s12 column-style");
+    // Adds Sub Row
+    var welcomeRow = $("<div>").attr("class", "row");
 
-        $(welcomeDiv).append(h1Text);
-        $(".empty").append(welcomeDiv);
+
+    // Adds Left Column Div
+    var welcomeCol2 = $("<div>").attr("class", "col s2");
+    var imdbImg = $("<img>").attr("src", "assets/images/imdb4.png");
+    imdbImg.attr("id", "imdbImg");
+    $(welcomeCol2).append(imdbImg);
+    
+
+    var welcomeCol3 = $("<div>").attr("class", "col s8");
+    var h4Text = $("<h4>").text("Search your favorite show or movie to pair with the perfect beer!");
+    $(welcomeCol3).append(h4Text);
+    
+
+    var welcomeCol4 = $("<div>").attr("class", "col s2");
+    var beerImg = $("<img>").attr("src", "assets/images/beerglassfour.png");
+    beerImg.attr("id", "beerImg");
+    $(welcomeCol4).append(beerImg);
+    
+    $(welcomeRow).append(welcomeCol2);
+    $(welcomeRow).append(welcomeCol3);
+    $(welcomeRow).append(welcomeCol4);
+
+    $(welcomeCol1).append(welcomeRow);
+    $(".empty").append(welcomeCol1);
 
 
 
