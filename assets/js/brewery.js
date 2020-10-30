@@ -57,6 +57,8 @@ $(document).ready(function () {
             // ADDING MOVIE INFO TO HTML
             var newMovieDiv = $("<div>").attr("id", "newMovieDiv");
             var moviePoster = $("<img>").attr("src", response.Poster);
+            moviePoster.attr("id", "small-picture");
+
             newMovieDiv.append(moviePoster);
             $("#movieResult").append(newMovieDiv);
             

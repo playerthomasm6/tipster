@@ -1,9 +1,15 @@
-.col {
+body {
+    background: url(../image/overlay.png);
+    background-color: rgb(22, 22, 22);
+}
+
+
+.column-style {
     padding-top: 50px;
     padding-bottom: 80px;
-    background-color: rgb(0, 0, 0);
+    background-color: #bdab4a;
     border: solid;
-    border-color: gold;
+    border-color: #bdab4a;
     border-width: 5px;
     border-radius: 10px;
     background-image: url("/assets/");
@@ -12,10 +18,11 @@
 }
 
 .container {
+    width: 100%;
     text-align: center;
     padding: 40px;
     background: url('/assets/images/movie.jpg');
-    background-color: gray;
+    background-color: transparent;
 }
 
 /* took some css reference from https://www.mikedane.com/web-development/css/styling-search-bar/ */
@@ -56,18 +63,37 @@
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px #999;
-  }
+}
 
-#searchBarButton:hover {
-    background-color: rgb(255, 255, 255);
-    Box-shadow:0.5px 5px 10px rgb(255, 230, 9), 0.5px 6px 6px rgb(239, 255, 11);
+#submit:hover {
+    background-color: rgb(53, 208, 255);
+}
 
-  }
+#submit:active {
+    background-color: blue;
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
+}
 
-  #beerResult{
-      background-image: url("assets/images/beer1.jpg");
-      background-color: #cccccc00;
-  }
+ 
+#beerResult{
+    background-image: url("assets/images/beer1.jpg");
+    background-color: #cccccc00;
+}
+
+#searchText {
+    color: black;
+}
+
+#small-picture {
+    width: 85%;
+    height: 85%;
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 10px;
+    margin: 2%;
+}
 
 
   
