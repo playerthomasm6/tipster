@@ -4,6 +4,8 @@ $(document).ready(function () {
     // START GLOBAL VARIABLES
     var masterArray = [];
 
+    
+
 
     // END GLOBAL VARIABLES
 
@@ -143,7 +145,7 @@ $(document).ready(function () {
                 var nameEl = $("<h5 class='card-title'>").text(beerName);
                 var AbvEl = $("<h5 class='card-title'>").text(ABV);
                 var descriptionEl = $("<p class='card-title'>").text(beerDescrtiption);
-                $("#beerResult").append("Beer Name:",nameEl);
+                $("#beerResult").append("Beer Name: ",nameEl);
                 $("#beerResult").append("ABV:",AbvEl);
                 $("#beerResult").append("Description:",descriptionEl);
                 console.log(response);
@@ -162,6 +164,12 @@ $(document).ready(function () {
     // START CLICK FUNCTIONS
 
     $("#searchBarButton").on("click", displayMovieInfo);
+    
+    $("#searchBar").keypress(function (event){
+        if (event.keyCode === 13) {
+            $("#searchBarButton").click();
+        }
+    });
 
 
 
