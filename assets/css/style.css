@@ -1,7 +1,16 @@
+body {
+    background: url(../image/overlay.png);
+    background-color: rgb(22, 22, 22);
+}
+
 .col {
     padding-top: 50px;
     padding-bottom: 80px;
-    background-color: rgb(223, 65, 65);
+    background-color: #bdab4a;
+    border: solid;
+    border-color: #bdab4a;
+    border-width: 5px;
+    border-radius: 10px;
     background-image: url("/assets/");
     width: 100%;
     color: white;
@@ -11,6 +20,7 @@
     text-align: center;
     padding: 40px;
     background: url('/assets/images/movie.jpg');
+    background-color: transparent;
 }
 
 /* took some css reference from https://www.mikedane.com/web-development/css/styling-search-bar/ */
@@ -63,4 +73,7 @@
     transform: translateY(4px);
   }
 
+#searchText {
+    color: black;
+}
 
