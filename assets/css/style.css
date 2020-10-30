@@ -1,6 +1,69 @@
-.col{
-    background-color: rgb(223, 65, 65);
+.col {
+    padding-top: 50px;
+    padding-bottom: 80px;
+    background-color: rgb(0, 0, 0);
+    border: solid;
+    border-color: gold;
+    border-width: 5px;
+    border-radius: 10px;
+    background-image: url("/assets/");
     width: 100%;
     color: white;
-
 }
+
+.container {
+    text-align: center;
+    padding: 40px;
+    background: url('/assets/images/movie.jpg');
+    background-color: gray;
+}
+
+/* took some css reference from https://www.mikedane.com/web-development/css/styling-search-bar/ */
+
+#searchBar {
+    border: 1px solid grey;
+    border-radius: 5px;
+    height: 20px;
+    width: 30%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: #f5f5f5;
+}
+
+.rel {
+    position: relative;
+}
+
+#searchDiv {
+    text-align: center;
+}
+
+.search-icon {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 14px;
+}
+
+#submit {
+    padding: 10px 15px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: red;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px #999;
+  }
+
+#submit:hover {
+    background-color: rgb(53, 208, 255)
+}
+
+#submit:active {
+    background-color: blue;
+    box-shadow: 0 3px #666;
+    transform: translateY(4px);
+  }
