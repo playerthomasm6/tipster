@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url("../assets/images/overlay1.png");
+    /* background: url("../assets/images/overlay1.png"); */
     background-color: rgb(22, 22, 22);
 }
 
@@ -16,7 +16,7 @@ body {
     border-color: #000000;
     border-width: 5px;
     border-radius: 10px;
-    background-image: url("/assets/");
+    /* background-image: url("/assets/"); */
     width: 100%;
     color: black;
 }
@@ -25,7 +25,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 40px;
-    background: url('/assets/images/movie.jpg');
+    /* background: url('/assets/images/movie.jpg'); */
     background-color: transparent;
 }
 
