@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Tipster.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -16,29 +17,41 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1 class="animate__heartBeat " id="searchText">Search for a movie</h1>
+            <div class="col column-style">
+                <h1 class="animate__heartBeat " id="searchText">Tipster</h1>
+                <p>Getting tipsy with Tipster</p>
                 <div class="searchBar animate__shakeX">
-                    <input type="text" id="searchBar">
+                    <input type="text" id="searchBar" placeholder="Search a movie or tv show">
                     <span><button id="searchBarButton">Send It</button></span>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s6" id="movieResult">
-            </div>
-            <div class="col s6" id="beerResult">
-            </div>
+        <div class="empty">
+
         </div>
-    </div>
+
+        
+        <!--Ghost Code to demonstrate the dynamically generated code. 
+            <div class="row">
+            <div class="col s1"></div>
+            <div class="col s4 column-style" id="movieResult">
+            </div>
+            
+            <div class="col s2"></div>
+
+            <div class="col s4 column-style" id="beerResult">
+            </div>
+            <div class="col s1"></div>
+        </div>
+    </div> -->
+    
 
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="Assets/js/script.js"></script>
-    <script src="Assets/js/brewery.js"></script>
-    <script src="Assets/js/moviematch.js"></script>
+    <script src="assets/js/brewery.js"></script>
+    
 </body>
 
 </html>

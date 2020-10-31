@@ -1,21 +1,32 @@
-.col {
+* {
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    background: url("../assets/images/overlay1.png");
+    background-color: rgb(22, 22, 22);
+}
+
+
+.column-style {
     padding-top: 50px;
     padding-bottom: 80px;
-    background-color: rgb(0, 0, 0);
+    background-color: #FFD835;
     border: solid;
-    border-color: gold;
+    border-color: #000000;
     border-width: 5px;
     border-radius: 10px;
     background-image: url("/assets/");
     width: 100%;
-    color: white;
+    color: black;
 }
 
 .container {
+    width: 100%;
     text-align: center;
     padding: 40px;
     background: url('/assets/images/movie.jpg');
-    background-color: gray;
+    background-color: transparent;
 }
 
 /* took some css reference from https://www.mikedane.com/web-development/css/styling-search-bar/ */
@@ -56,14 +67,66 @@
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px #999;
-  }
+}
 
 #submit:hover {
-    background-color: rgb(53, 208, 255)
+    background-color: rgb(53, 208, 255);
 }
 
 #submit:active {
     background-color: blue;
     box-shadow: 0 3px #666;
     transform: translateY(4px);
-  }
+}
+
+ 
+#beerResult{
+    background-image: url("assets/images/beer1.jpg");
+    background-color: #FFD835;
+    color: black;
+}
+
+#searchText {
+    color: black;
+}
+
+#small-picture {
+    width: 85%;
+    height: 85%;
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+#imdbImg {
+    width: 90%;
+    height: 90%;
+    margin:1%;
+}
+
+#beerImg {
+    width: 45%;
+    height: 45%;
+    margin:auto;
+}
+
+#beerDescription{
+    font-size: 10px;
+}
+
+#beerDescription:Hover{
+    font-size: 20px;
+}
+
+a { color: inherit; } 
+
+#emojiSad{
+    width: 100%;
+    height: 100%;
+}
+
+.boldBeer{
+    font-weight: bold;
+}
