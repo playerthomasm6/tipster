@@ -104,7 +104,7 @@ $(document).ready(function () {
 
         var movie = $("#searchBar").val();
         // OMDB API Request
-        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&apikey=e80d9e49";
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=e80d9e49";
 
         $.ajax({
             url: queryURL,
