@@ -30,6 +30,12 @@ body {
 }
 
 /* took some css reference from https://www.mikedane.com/web-development/css/styling-search-bar/ */
+.navbar {
+    background-color: #FFD838;
+    text-align: center;
+    font-size: 25px;
+    color: black;
+}
 
 #searchBar {
     border: 1px solid grey;
